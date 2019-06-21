@@ -1,0 +1,73 @@
+
+import sys 
+  
+# m is size of coins array (number of different coins) 
+def minCoins(coins, m, V): 
+  
+    # base case 
+    if (V == 0): 
+        return 0
+  
+    # Initialize result 
+    res = sys.maxsize 
+      
+    # Try every coin that has smaller value than V 
+    for i in range(0, m): 
+        if (coins[i] <= V): 
+            sub_res = minCoins(coins, m, V-coins[i]) 
+  
+            # Check for INT_MAX to avoid overflow and see if 
+            # result can minimized 
+            if (sub_res != sys.maxsize and sub_res + 1 < res): 
+                res = sub_res + 1
+  
+    return res 
+  
+# Driver program to test above function 
+coins = [10, 7, 1] 
+m = len(coins) 
+
+V = 15
+print("15 : ",minCoins(coins, m, V))
+V = 16
+print("16 : ",minCoins(coins, m, V))
+V = 17
+print("17 : ",minCoins(coins, m, V))
+V = 18
+print("18 : ",minCoins(coins, m, V))
+V = 19
+print("19 : ",minCoins(coins, m, V))
+V = 20
+print("20 : ",minCoins(coins, m, V))
+V = 21
+print("21: ",minCoins(coins, m, V))
+V = 22
+print("22 : ",minCoins(coins, m, V))
+V = 23
+print("23 : ",minCoins(coins, m, V))
+V = 24
+print("24 : ",minCoins(coins, m, V))
+V = 25
+print("25 : ",minCoins(coins, m, V))
+V = 26
+print("26 : ",minCoins(coins, m, V))
+V = 27
+print("27 : ",minCoins(coins, m, V))
+V = 28
+print("28 : ",minCoins(coins, m, V))
+V = 29
+print("29 : ",minCoins(coins, m, V))
+
+V = 30
+print("30: ",minCoins(coins, m, V))
+V = 31
+print("31: ",minCoins(coins, m, V))
+V = 32
+print("32: ",minCoins(coins, m, V))
+V = 33
+print("33 : ",minCoins(coins, m, V))
+V = 34
+print("34 : ",minCoins(coins, m, V))
+V = 35
+print("35 : ",minCoins(coins, m, V))
+
